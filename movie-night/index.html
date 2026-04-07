@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Night</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <h1>🎬 Movie Night</h1>
+          <p class="tagline">Your personal watchlist. No spoilers.</p>
+        </div>
+        <div class="header-stats">
+          <div class="stat">
+            <span class="stat-num" id="total-count">0</span>
+            <span class="stat-label">Total</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="watched-count">0</span>
+            <span class="stat-label">Watched</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="unwatched-count">0</span>
+            <span class="stat-label">To Watch</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- Add Movie Form -->
+      <section class="form-section">
+        <h2 class="section-title">Add a Movie</h2>
+        <form id="movie-form">
+          <div class="form-grid">
+            <div class="field span-2">
+              <label for="movie-title">Title</label>
+              <input type="text" id="movie-title" placeholder="e.g. Interstellar" maxlength="60" required />
+            </div>
+            <div class="field">
+              <label for="movie-genre">Genre</label>
+              <select id="movie-genre">
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="horror">Horror</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="thriller">Thriller</option>
+                <option value="animation">Animation</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="movie-year">Year</label>
+              <input type="number" id="movie-year" placeholder="e.g. 2014" min="1900" max="2099" />
+            </div>
+            <div class="field span-2">
+              <label for="movie-note">Note (optional)</label>
+              <input type="text" id="movie-note" placeholder="Why do you want to watch it?" maxlength="80" />
+            </div>
+          </div>
+          <button type="submit" class="btn-add">+ Add to Watchlist</button>
+        </form>
+      </section>
+
+      <!-- Watchlist -->
+      <section class="list-section">
+        <div class="list-controls">
+          <h2 class="section-title">Watchlist</h2>
+          <div class="controls-right">
+            <select id="filter-status">
+              <option value="all">All Movies</option>
+              <option value="unwatched">To Watch</option>
+              <option value="watched">Watched</option>
+            </select>
+            <select id="filter-genre">
+              <option value="all">All Genres</option>
+              <option value="action">Action</option>
+              <option value="comedy">Comedy</option>
+              <option value="drama">Drama</option>
+              <option value="horror">Horror</option>
+              <option value="sci-fi">Sci-Fi</option>
+              <option value="thriller">Thriller</option>
+              <option value="animation">Animation</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div id="movie-grid"></div>
+      </section>
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
