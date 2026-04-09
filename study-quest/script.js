@@ -17,7 +17,7 @@ function saveData() {
 
 function loadData() {
   // BUG #2: reads from wrong key — will never find saved data
-  const stored = localStorage.getItem("studyquest");
+  const stored = localStorage.getItem("studyquest_v1");
   if (stored) {
     const parsed = JSON.parse(stored);
     subjects = parsed.subjects || [];
@@ -36,7 +36,7 @@ function getXPIntoLevel(xp) {
 }
 
 function updateXPDisplay() {
-  const xp    = parseInt(totalXP);
+   xp    = parseInt(totalXP);
   const level = getLevel(xp);
   const into  = getXPIntoLevel(xp);
   const pct   = (into / XP_PER_LEVEL) * 100;
