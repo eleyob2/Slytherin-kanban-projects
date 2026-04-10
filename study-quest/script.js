@@ -6,7 +6,7 @@
 let subjects = [];
 let sessions  = [];
 let totalXP   = "0";          // BUG #3: XP concatenation issue
-
+const header=document.getElementById("header")
 const XP_PER_LEVEL = 100;
 const SAVE_KEY     = "studyquest_v1";
 
@@ -40,7 +40,7 @@ function updateXPDisplay() {
   const level = getLevel(xp);
   const into  = getXPIntoLevel(xp);
   const pct   = (into / XP_PER_LEVEL) * 100;
-
+  Headers.textContent= "You've studied for " + xp + "minutes"
   document.getElementById("xp-display").textContent    = xp;
   document.getElementById("level-display").textContent = level;
   document.getElementById("xp-next-label").textContent =
@@ -54,11 +54,7 @@ function updateXPDisplay() {
 function getSubjectById(id) {
   // BUG #4: comparing number id to string value from select element
   // Maybe there's some issue with strict and loose equality...?
-<<<<<<< HEAD
   return subjects.find(s => s.id === id); 
-=======
-  return subjects.find(s => s.id == id);
->>>>>>> 294dd779e2a0c560eae3941ad57eca6f00a39f08
 }
 
 function refreshSubjectDropdowns() {
@@ -204,3 +200,4 @@ renderSubjects();
 refreshSubjectDropdowns();
 renderSessions();
 updateXPDisplay();
+
