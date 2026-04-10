@@ -112,7 +112,7 @@ h1 .accent { color: var(--accent); }
   height: 100%;
   width: var(--fill-pct, 0%);   /* BUG: second 'height' overrides first — should be width */
   transition: width 0.4s ease;
-}/**/
+}
 
 /* ── Layout ─────────────────────────────────── */
 main {
