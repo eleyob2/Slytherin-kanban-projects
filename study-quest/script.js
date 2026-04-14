@@ -50,7 +50,8 @@ function updateXPDisplay() {
   bar.style.setProperty("--fill-pct", pct + "%");
 }
 
-/ ── Streak ────────────────────────────────────
+
+/* ── Streak ──────────────────────────────────── */
 function getStreakCount() {
   if (sessions.length === 0) return 0;
 
