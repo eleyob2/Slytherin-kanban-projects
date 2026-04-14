@@ -189,6 +189,19 @@ function renderSessions(filter = "all") {
 
 // ── Forms ─────────────────────────────────────
 
+const toastElement = document.getElementById("quick-session-toast");
+let toastTimer;
+
+function showSessionToast(message) {
+  if (!toastElement) return;
+  toastElement.textContent = message;
+  toastElement.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toastElement.classList.remove("show");
+  }, 3600);
+}
+
 // Add Subject
 const subjectForm = document.getElementById("subject-form");
 subjectForm.addEventListener("submit", (e) => {
@@ -216,12 +229,20 @@ sessionForm.addEventListener("submit", (e) => {
   if (!subjectId || !minutes || minutes < 1) return;
 
   const xpEarned = minutes;
-  totalXP = parseInt(totalXP) + xpEarned;    // BUG #3: XP is calculated incorrectly?
+  totalXP = parseInt(totalXP) + xpEarned;    // BUG #3: XP is calculated incorrectly??
 
   sessions.unshift({ subjectId, minutes, note, xpEarned, date: Date.now() });
   saveData();
   updateXPDisplay();
   renderSessions(document.getElementById("history-filter").value);
+
+  if (minutes < 15) {
+    showSessionToast("Quick session — every bit counts!");
+  } else if (minutes <= 45) {
+    showSessionToast("Solid work! Keep it up.");
+  } else {
+    showSessionToast("Beast mode! That's a long session.");
+  }
 
   document.getElementById("session-subject").value  = "";
   document.getElementById("session-minutes").value  = "";

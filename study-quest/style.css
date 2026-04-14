@@ -107,7 +107,7 @@ h1 .accent { color: var(--accent); }
   even though the JS is updating it.
 */
 .xp-bar-fill {
-  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  background: var(--accent2);
   border-radius: 20px;
   height: 100%;
   width: var(--fill-pct, 0%);   /* BUG: second 'height' overrides first — should be width */
@@ -374,4 +374,28 @@ input:focus, select:focus {
   .history-header select {
     width: 100%;
   }
+}
+
+.toast-message {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%) translateY(100%);
+  background: rgba(15, 23, 42, 0.96);
+  color: #f8fafc;
+  padding: 0.9rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 70, 229, 0.9);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  z-index: 1000;
+}
+
+.toast-message.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
 }
